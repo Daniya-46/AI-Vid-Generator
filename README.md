@@ -12,7 +12,7 @@ A full-stack AI-powered platform that generates promotional content using Google
 
 ---
 
-## 🔧 Tech Stack
+## Tech Stack
 
 ### Frontend
 - [Next.js 14 (App Router)](https://nextjs.org/)
@@ -26,7 +26,7 @@ A full-stack AI-powered platform that generates promotional content using Google
 
 ---
 
-## 🚀 How to Run Locally
+## How to Run Locally
 
 ### 1. Clone the Repo
 
