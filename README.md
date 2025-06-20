@@ -1,4 +1,4 @@
-# AI Vid Generator 🎥
+# AI Vid Generator
 
 A full-stack AI-powered platform that generates promotional content using Google Gemini. This project includes:
 
