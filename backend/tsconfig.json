@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es6",                          
+    "module": "commonjs",                     
+    "rootDir": "./",
+    "outDir": "./dist",
+    "esModuleInterop": true,                 
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "scripts": {
+  "dev": "ts-node index.ts",
+  "build": "tsc",
+  "start": "node dist/index.js"
+  },
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

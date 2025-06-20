@@ -1,0 +1,22 @@
+# .gitignore
+
+# Node.js dependencies
+**/node_modules/
+
+# Env files
+**/.env
+
+# Build output
+**/.next/
+**/dist/
+**/out/
+
+# Logs
+**/npm-debug.log*
+
+# VSCode settings
+.vscode/
+
+# OS generated
+.DS_Store
+Thumbs.db
