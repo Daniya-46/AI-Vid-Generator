@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    /* white */
+    --foreground: 0 0% 0%;
+    /* black */
+    --primary: 221 83% 53%;
+    /* blue-600 */
+  }
+}
+
+/* Remove dark mode preferences for now */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+  }
+} */
