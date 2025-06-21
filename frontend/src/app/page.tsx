@@ -29,7 +29,7 @@ export default function Home() {
       setActiveSlide((prev) => (prev + 1) % slides.length);
     }, 2000);
     return () => clearInterval(interval);
-  }, []);
+  }, [slides.length]);
 
   return (
     <div className="flex-1 flex items-center justify-center p-4 relative overflow-hidden">

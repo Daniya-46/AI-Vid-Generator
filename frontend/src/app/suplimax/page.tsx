@@ -1,5 +1,9 @@
 "use client";
 import React, { useState } from "react";
+import LoadingButton from "../components/LoadingButton/page";
+import ErrorBanner from "../components/ErrorBanner/page";
+import VideoPreview from "../components/VideoPreview/page";
+import ScriptOutput from "../components/ScriptOutput/page";
 
 const tones = ["Exciting", "Professional", "Friendly", "Bold"];
 const audiences = ["Athletes", "Students", "Professionals", "General Public"];
@@ -41,8 +45,10 @@ export default function SuplimaxGenerator() {
       setVideoUrl(
         data.videoUrl || "https://www.w3schools.com/html/mov_bbb.mp4"
       ); //Mock video URL for demo
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(
+        err instanceof Error ? err.message : "An unknown error occurred"
+      );
     } finally {
       setLoading(false);
     }
@@ -129,71 +135,14 @@ export default function SuplimaxGenerator() {
               </div>
             </div>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#5c6ac4] hover:bg-[#4a58b0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5c6ac4] transition-colors ${
-                loading ? "opacity-70 cursor-not-allowed" : ""
-              }`}
-            >
-              {loading ? (
-                <>
-                  <svg
-                    className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                  </svg>
-                  Generating...
-                </>
-              ) : (
-                "Generate"
-              )}
-            </button>
+            <LoadingButton loading={loading} label="Generate" />
           </form>
 
-          {error && (
-            <div className="mt-6 p-4 bg-red-50 rounded-md text-red-800">
-              {error}
-            </div>
-          )}
+          <ErrorBanner error={error} />
 
-          {videoUrl && (
-            <div className="mt-10">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Video Preview
-              </h3>
-              <video
-                src={videoUrl}
-                controls
-                className="w-full rounded-lg shadow-md mb-2"
-              />
-              <p className="text-sm text-gray-500 italic">
-                This is a mock video simulating Gemini Veo3 output.
-              </p>
-            </div>
-          )}
+          <VideoPreview videoUrl={videoUrl} />
 
-          {script && (
-            <div className="mt-6 bg-gray-50 p-4 rounded shadow">
-              <h4 className="font-semibold mb-2">Generated Script</h4>
-              <pre className="text-gray-800 whitespace-pre-wrap">{script}</pre>
-            </div>
-          )}
+          <ScriptOutput script={script} />
         </div>
       </div>
     </div>
