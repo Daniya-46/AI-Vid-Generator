@@ -17,7 +17,6 @@ A full-stack AI-powered platform that generates promotional content using Google
 ### Frontend
 - [Next.js 14 (App Router)](https://nextjs.org/)
 - Tailwind CSS
-- React Context (for dark/light theme)
 
 ### Backend
 - Express.js (Node.js)
